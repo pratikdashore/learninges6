@@ -92,4 +92,8 @@ var config = {
     }
 }
 
+function printAll([a, b, c]) {
+    console.log(a, b, c);
+}
 
+printAll([10, 12, 13]);
