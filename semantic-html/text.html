@@ -1,0 +1,40 @@
+<style>
+ol li {
+  color: green;
+}
+
+ol>li{
+  color: red;
+}
+
+li.myclass ~ li {
+  color:orange;
+}
+
+li.myclass + li {
+  color: blue;
+}
+
+
+
+</style>
+
+<ol>
+  <li>item 1</li>
+  <li>item 2</li>
+  <li> Item 3
+      <div>
+        <ol>
+          <li>Item 3.a</li>
+          <li>Item 3.a</li>
+          <li>Item 3.a</li>
+        </ol>
+      </div>
+      
+  </li>
+
+  <li class="myclass">item 4</li>
+  <li>item 5</li>
+  <li>item 6</li>
+  <li>item 7</li>
+</ol>
