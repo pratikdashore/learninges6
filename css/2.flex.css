@@ -1,0 +1,40 @@
+body{
+ display: flex;
+ flex-direction: column;
+}
+
+main{
+display: flex;
+}
+
+artical{
+ flex: 2 2 12em;
+}
+
+nav,aside{
+ flex: 1;
+}
+
+footer{
+  flex: 1;
+}
+
+.page-header{
+  background-color: red;
+}
+
+.page-footer{
+  background-color: orange;
+}
+
+.content-navigation{
+background-color: green;
+}
+
+.content-artical{
+  background-color: cadetblue;
+}
+
+.content-sidebar{
+  background-color: brown;
+}

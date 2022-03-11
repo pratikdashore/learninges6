@@ -1,0 +1,16 @@
+.container {
+  background-color: red;
+  display: inline-flex;
+  flex-direction: row;
+  border: solid 4px black;
+  width: 60%;
+  height: 30em;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.item {
+  background-color: green;
+  border: solid 2px black;
+  width: 200px;
+}
