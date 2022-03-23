@@ -3,7 +3,7 @@ body{
  flex-direction: column;
 }
 
-main{
+.page-content{
 display: flex;
 }
 

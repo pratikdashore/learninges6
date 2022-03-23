@@ -9,6 +9,7 @@ var [
     ...args
 ] = foo();
 
+
 // it is array destructuring. if number of elements are more or less they are ignored or set as undefined based on number of return elements. 
 
 // nested array destructuring 

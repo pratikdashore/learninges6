@@ -64,7 +64,9 @@ var obj = {
 
 
 var a = [...obj];
-
+for(let a of obj){
+  console.log(a)
+}
 
 
 /// generators 
