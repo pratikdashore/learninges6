@@ -10,16 +10,16 @@ dog1 = null;
 console.log(weakSauce);
 console.log(normalSet);
 
-let dog1 = { name: 'Snickers' };
-let dog2 = { name: 'Sunny' };
+let dog3 = { name: 'Snickers' };
+let dog4 = { name: 'Sunny' };
 
 const strong = new Map();
 const weak = new WeakMap();
 
-strong.set(dog1, 'Snickers is the best!');
-weak.set(dog2, 'Sunny is the 2nd best!');
+strong.set(dog3, 'Snickers is the best!');
+weak.set(dog4, 'Sunny is the 2nd best!');
 
-dog1 = null;
-dog2 = null;
+dog3 = null;
+dog4 = null;
 console.log(weak);
 console.log(strong);
