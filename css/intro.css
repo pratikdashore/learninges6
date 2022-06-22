@@ -1,0 +1,43 @@
+/* 
+Cascading: the one which is in more down will override the earlier one
+Specificity: id selector > class selector > element selector 
+Inheritance:  
+
+The cascade Stylesheets cascade — at a very simple level,
+this means that the order of CSS rules matters;
+when two rules apply that have equal specificity,
+the one that comes last in the CSS is the one that will be used.
+
+Specificity: Specificity is how the browser decides which rule applies if multiple rules have different selectors,
+but could still apply to the same element. It is basically a measure of how specific a selector's selection will be:
+
+Inheritance: Inheritance also needs to be understood in this context — some CSS property values set on parent elements are inherited by their child elements,
+and some aren't.
+
+Selectors: 
+# ID, Class, Element, Psudo Element, Psudo Classes 
+# Descendant combinator The descendant combinator — typically represented by a single space (" ") character — combines two selectors such that elements matched by the second selector are selected if they have an ancestor (parent, parent's parent, parent' s parent's parent, etc) element matching the first selector. Selectors that utilize a descendant combinator are called descendant selectors.
+  example tr td {
+     background-color:#449944;
+  }
+
+    Child combinator The child combinator (>) is placed between two CSS selectors. It matches only those elements matched by the second selector that are the direct children of elements matched by the first. Descendant elements further down the hierarchy don't match. For example, to select only <p> elements that are direct children of <article> elements:
+  
+    article>p {
+      background-color:red;
+    }
+
+        Adjacent sibling combinator The adjacent sibling selector (+) is placed between two CSS selectors. It matches only those elements matched by the second selector that are the next sibling element of the first selector. For example,
+        to select all <img>elements that are immediately preceded by a <p>element:
+        
+        p+img{
+        }
+
+                General sibling combinator If you want to select siblings of an element even if they are not directly adjacent,
+                then you can use the general sibling combinator (~). To select all <img>elements that come anywhere after <p>elements,
+                we'd do this:
+p ~ img {
+
+}
+
+*/
