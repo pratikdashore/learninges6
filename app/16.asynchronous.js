@@ -1,30 +1,38 @@
-
-
-
 function MyPromise(executorFn) {
+  let errFn;
 
   this.then = function (resolveFn, rejectFn) {
-      executorFn(resolveFn, rejectFn); 
-  }
+    try {
+      executorFn(resolveFn, rejectFn);
+    } catch (error) {
+      if(errFn){
+        errFn(error);
+      }else{
+        throw error;
+      }
+    }
+
+    return this;
+  };
 
   this.catch = function catchPromiseError(errorFn) {
-    errorFn(errorref);
-  }
-
+       errFn = errorFn;
+  };
 }
 
-
 let myPromise = new MyPromise(function myPromiseExecutor(resolve, reject) {
-
-  setTimeout(() => {
-    reject('Hello Pratik!!');
-  }, 5000);
-
+      throw 'There is an Issue';
 });
 
-
-myPromise.then(function resolve(res) {
-  console.log(res);
-}, function reject(message) {
-  console.log(message);
-});
+myPromise
+  .then(
+    function resolve(res) {
+      console.log('Resolve',res);
+    },
+    function reject(message) {
+      console.log('Reject::',message);
+    }
+  )
+  .catch((err) => {
+    console.log('Catch::',err);
+  });

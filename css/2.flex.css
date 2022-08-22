@@ -11,12 +11,8 @@ artical{
  flex: 2 2 12em;
 }
 
-nav,aside{
+nav,aside,footer{
  flex: 1;
-}
-
-footer{
-  flex: 1;
 }
 
 .page-header{
