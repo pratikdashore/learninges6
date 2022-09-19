@@ -31,13 +31,31 @@ Function.prototype.bindMe = function(context){
   }
 }
 
-var obj2 = {
+Function.prototype.bindMeEs6 = function (context) {
+  return (...args) => this.apply(context, args);
+}
+
+var obj2 =  {
   fName:'Dashore'
 }
+
+var obj3 = {
+  fName: 'Pratik'
+}
+
+let bindedMeEs6 = logMe.bindMeEs6(obj2);
+
+bindedMeEs6('Binded ES6');
 
 let bindedMe = logMe.bindMe(obj2);
 
 bindedMe('Binded, explicit');
+
+obj3.getName = logMe.bindMe(obj2);
+obj3.getNameEs = logMe.bindMeEs6(obj2);
+
+obj3.getName('Obj3');
+obj3.getNameEs('Obj 3 ES');
 
 function person(fName, age){
   this.fName = fName;

@@ -69,6 +69,79 @@ for(let a of obj){
 }
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// With Class or contructor 
+
+function CustomIterator(arr = [], start = 0, end){
+  end = end === undefined ? arr.length : end;
+  this.values = arr;
+  this[Symbol.iterator] = function (){
+    let idx = start; 
+    let it = {
+       next : () => {
+          if(idx <= end){
+            let value = this.values[idx];
+            idx++;
+            return { value, done: false};
+          }else {
+            return { value: undefined, done: true};
+          }
+       }
+    }
+    return it;
+  }
+}
+
+let arr = [12, 3, 12, 3, 23, 4, 454, 545, 656, 5656, 5656, 767676878, 8888, 2323, 23, 233, 45, 7, 5, 67, 8787];
+let iterator = new CustomIterator(arr, 5, 9);
+
+for (let a of iterator) {
+  console.log(a)
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////
+// as custom array 
+
+function CustomArray(arr = [], start = 0, end) {
+  end = end === undefined ? arr.length : end;
+  this.start = start;
+  this.end = end;
+  Array.call(this, arr);
+}
+
+CustomArray.prototype = Object.create(Array.prototype);
+
+CustomArray.prototype[Symbol.iterator] = function () {
+  let idx = this.start;
+  let it = {
+    next: () => {
+      if (idx <= this.end) {
+        let value = this[idx];
+        idx++;
+        return { value, done: false };
+      } else {
+        return { value: undefined, done: true };
+      }
+    }
+  }
+  return it;
+}
+
+let abc = [12, 3, 12, 3, 23, 4, 454, 545, 656, 5656, 5656, 767676878, 8888, 2323, 23, 233, 45, 7, 5, 67, 8787];
+let newArr = new CustomArray(arr, 5, 9);
+
+let filtered = [...newArr].filter((ele) => {
+  console.log(ele);
+  return ele % 2;
+});
+console.log(filtered);
+
+
+
+
+
 /// generators 
 
 // basically to pause and resume functionality , it knows its state where it was, it yields the output by yeilds keyword and can be used with iterators.
