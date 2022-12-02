@@ -16,4 +16,5 @@ var p = new Promise(function(resolve, reject){
 
 p.then(function(res){
   console.log('inside then ', res, new Date().getMilliseconds());
-})
+});
+
