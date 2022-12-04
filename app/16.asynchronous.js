@@ -172,8 +172,23 @@ function fetchUrlData(url, prevRes) {
       console.log('response from response json::', url);
       return resJson;
     })
-  });
+  }).catch(console.log);
 
+}
+
+async function fetchUrlDataWithAsyncAwait(url, prevRes) {
+  console.log('calling ::', url);
+  console.log('PrevResponse', prevRes);
+  let response;
+  try {
+    let apiResponse = await fetch(url);
+    console.log('response from api::', url);
+    response = await apiResponse.json();
+    console.log('response from response json::', url);
+  } catch (error) {
+    console.log(error);
+  }
+  return response;
 }
 
 // fetchUrlData(apis[0]);
@@ -312,11 +327,48 @@ executeSequentiallyWithAsyncAwaitByParalleCalls(apis); */
 async function executeSequentiallyWithAsyncAwaitWithoutParallelCalls(urls) {
   const responses = [];
   for (const url of urls) {
-    let res = await fetchUrlData(url);
+    let res = await fetchUrlDataWithAsyncAwait(url);
     console.log(res);
     responses.push(res);
   }
   console.log(responses);
 }
 
-executeSequentiallyWithAsyncAwaitWithoutParallelCalls(apis);
+// executeSequentiallyWithAsyncAwaitWithoutParallelCalls(apis);
+
+// execute sequentially with for await parallel calls 
+
+async function executeSeqWithForAwait(urls) {
+  const responses = [];
+  const promises = urls.map((url) => {
+    return fetchUrlDataWithAsyncAwait(url);
+  });
+
+  for await (const res of promises) {
+    console.log(res);
+    responses.push(res);
+  }
+  console.log(responses);
+}
+
+// executeSeqWithForAwait(apis);
+
+
+// Async generators 
+
+async function* foo() {
+  yield await Promise.resolve('a');
+  yield await Promise.resolve('b');
+  yield await Promise.resolve('c');
+}
+
+let str = '';
+
+async function generate() {
+  for await (const val of foo()) {
+    str = str + val;
+  }
+  console.log(str);
+}
+
+generate();

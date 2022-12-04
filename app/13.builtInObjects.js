@@ -45,6 +45,11 @@ for (const iterator of bset) {
 // some of methods or props are missing compared to map and set
 // like size, forEach, enteries, values
 
+// Map vs Object 
+// Object can only have string, number and Symbols as key while array key can be of any data type 
+//  Objects doesn't contain key values in insertion order while map gives values in insertion order 
+
+
 
 
 

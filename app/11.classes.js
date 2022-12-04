@@ -8,69 +8,66 @@
 
  */
 
- // ES5
+// ES5
 
- function Employee(fName,lName){
-   this.fName = fName;
-   this.lName = lName;
- }
+function Employee(fName, lName) {
+  this.fName = fName;
+  this.lName = lName;
+}
 
- Employee.prototype.getDetails = function getDetails() {
-   return this.fName + ' ' + this.lName;
- }
+Employee.prototype.getDetails = function getDetails() {
+  return this.fName + ' ' + this.lName;
+}
 
- var employee = new Employee('Pratik', 'Dashore');
+var employee = new Employee('Pratik', 'Dashore');
 
- console.log(employee.getDetails());
+console.log(employee.getDetails());
 
 // ES6
 
 'use strict';
-class SmartEmployee{
+class SmartEmployee {
 
-   constructor(fName,lName){
-     this.fName = fName;
-     this.lName = lName;
-   }
+  constructor(fName, lName) {
+    this.fName = fName;
+    this.lName = lName;
+  }
 
-   getDetails(){
-     return `${this.fName} ${this.lName}`;
-   }
+  getDetails() {
+    return `${this.fName} ${this.lName}`;
+  }
 
-   get age(){
-     return this._age;
-   }
+  get fullName() {
+    return `${this.fName} ${this.lName}`;
+  }
 
 
 }
 
 let smartEmployee = new SmartEmployee('Smart', 'Dashore');
-console.log(smartEmployee.getDetails());
+console.log('get Details', smartEmployee.getDetails());
 
-console.log(smartEmployee.age);
-smartEmployee.age = 30;
-console.log(smartEmployee.age);
+console.log('FullName', smartEmployee.fullName);
 console.log(smartEmployee);
-console.log(smartEmployee._age);
-console.dir(smartEmployee);
 
 
-class AccoliteEmployee extends SmartEmployee{
-  constructor(fName, lName, employeeId){
+class AccoliteEmployee extends SmartEmployee {
+  constructor(fName, lName, employeeId) {
     super(fName, lName);
     this.employeeId = employeeId;
   }
 
-  getDetails(){
+  getDetails() {
     return this.fName;
   }
 
-  getCompleteDetail(){
+  getCompleteDetail() {
+    console.log(`${super.fullName} ${this.employeeId}`);
     return ` ${super.getDetails()} ${this.employeeId}`;
   }
 }
 
-let accoliteEmployee = new AccoliteEmployee('Pratik','Dashore','00001');
+let accoliteEmployee = new AccoliteEmployee('Pratik', 'Dashore', '00001');
 console.log(accoliteEmployee.getCompleteDetail());
 console.log(accoliteEmployee.getDetails());
 
