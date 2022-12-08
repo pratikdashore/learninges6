@@ -1,0 +1,64 @@
+.txt-bold {
+  font-weight: bold;
+}
+
+
+body {
+ margin: 0;
+ padding: 0;
+}
+
+ul > li > a {
+  text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  background-color: aquamarine;
+  font-size: 20px;
+}
+
+.logo{
+  margin-left: 5%;
+  color: red;
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.logo-header{
+  display: flex;
+  margin-left: 2%;
+}
+
+.nav-container {
+  display: flex;
+  margin-right: 2%;
+}
+
+.main-nav{
+  display: flex;
+  width: 50%;
+  float: right;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.main-nav > ul  {
+  display: none;
+  list-style: none;
+}
+
+.nav-child {
+  flex-flow: column;
+}
+
+.nav-link{
+  flex-flow: column;
+  list-style: none;
+}
+
