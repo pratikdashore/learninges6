@@ -16,10 +16,10 @@
 
 
 let sum = 0;
-const numbers = [ 2, 3, 4, 1 ];
+const numbers = [2, 3, 4, 1];
 
 for (const i in numbers) {
-  sum += numbers[ i ];
+  sum += numbers[i];
 }
 
 console.log(sum);
@@ -54,7 +54,7 @@ class ArrayIterator {
   }
 
   next() {
-    let result = {value:undefined, done:true};
+    let result = { value: undefined, done: true };
     if (this.idx < this.arr.length) {
       result.value = this.arr[this.idx];
       result.done = false;
@@ -72,10 +72,10 @@ class Company {
   }
 
   addEmployees(...names) {
-    this.employees = [ ...this.employees, ...names ];
+    this.employees = [...this.employees, ...names];
   }
 
-  [ Symbol.iterator ]() {
+  [Symbol.iterator]() {
     return new ArrayIterator(this.employees);
   }
 
@@ -98,13 +98,13 @@ class CompanyWithGen {
   }
 
   addEmployees(...names) {
-    this.employees = [ ...this.employees, ...names ];
+    this.employees = [...this.employees, ...names];
   }
 
-  *[ Symbol.iterator ]() {
-     for (const i of this.employees) {
-       yield i;
-     }
+  *[Symbol.iterator]() {
+    for (const i of this.employees) {
+      yield i;
+    }
   }
 
 }
@@ -116,56 +116,77 @@ for (const iterator of accoliteWithGen) {
 }
 
 let filter = function* (items, predicate) {
-    for (const item of items) {
-       if(predicate(item)){
-         yield item;
-       }
-    }
-}
-
-let nums = [1,2,3,4,5,6];
-for (const i of filter(nums, t=> t%2 == 0)) {
-   console.log(i);
-}
-
-let take = function* (items, number){
-   let count = 0;
-
-   if(number < 1){
-     return;
-   }
-
-   for (const item of items) {
+  for (const item of items) {
+    if (predicate(item)) {
       yield item;
-      count +=1;
-      if(count >= number){
-        return;
-      }
-   }
+    }
+  }
 }
 
-let firstEven = take(filter(nums, i=> i%2 ==0),1);
+let nums = [1, 2, 3, 4, 5, 6];
+for (const i of filter(nums, t => t % 2 == 0)) {
+  console.log(i);
+}
+
+let take = function* (items, number) {
+  let count = 0;
+
+  if (number < 1) {
+    return;
+  }
+
+  for (const item of items) {
+    yield item;
+    count += 1;
+    if (count >= number) {
+      return;
+    }
+  }
+}
+
+let firstEven = take(filter(nums, i => i % 2 == 0), 1);
 for (const i of firstEven) {
- console.log(i);
+  console.log(i);
 }
 
 
-function* testGenertors(){
-     let input = yield 'Hello';
-     console.log(input);
-     let input2 = yield 'World';
-     console.log(input2);
-     return input + input2;
-  }
+function* testGenertors() {
+  let input = yield 'Hello';
+  console.log(input);
+  let input2 = yield 'World';
+  console.log(input2);
+  return input + input2;
+}
 
-  let it = testGenertors();
+let it = testGenertors();
 
-  let nextN = it.next();
-  while (!nextN.done) {
-     console.log(nextN.value);
-     nextN = it.next(1);
-  }
+let nextN = it.next();
+while (!nextN.done) {
+  console.log(nextN.value);
+  nextN = it.next(1);
+}
 
-  console.log(nextN);
-  console.log(it);
+console.log(nextN);
+console.log(it);
 
+(() => {
+
+  // sequential execution 
+
+  const fn1 = (x) => new Promise((resolve) => {
+    setTimeout(() => {
+      console.log('Hello', x);
+      resolve(x + 1000);
+    }, x);
+  })
+
+  const applyAsync = (acc, curr) => acc.then(curr);
+
+  const composeAsync = (...fns) => (x) => fns.reduce(applyAsync, Promise.resolve(x));
+
+  const transformData = composeAsync(fn1, fn1, fn1);
+
+  transformData(2000).then((res) => console.log('Done', res));
+
+
+})()

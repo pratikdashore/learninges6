@@ -101,6 +101,35 @@
 
   console.log(harsh);
   console.log(newHarsh);
-   harsh.otherProps.mySet.add("Jain");
-   
+  harsh.otherProps.mySet.add("Jain");
+
 })();
+
+
+(() => {
+
+  function listAllProps(myObj) {
+
+    let objectToInspect = myObj;
+    let result = {};
+    let level = 0;
+
+    while (objectToInspect !== null) {
+      result[`Level ${level}`] = Object.getOwnPropertyNames(objectToInspect);
+      objectToInspect = Object.getPrototypeOf(objectToInspect);
+      level++;
+    }
+
+    console.dir(result);
+  }
+
+  let a = new Array();
+
+  listAllProps(a);
+
+})()
+
+(() => {
+  
+
+})()
