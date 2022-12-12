@@ -127,9 +127,15 @@
 
   listAllProps(a);
 
-})()
+})();
 
 (() => {
-  
+
+  'use strict';
+  let obj =  {};
+  obj.data ??= 'hello';
+  console.log('Object', obj?.data)
+
+
 
 })()

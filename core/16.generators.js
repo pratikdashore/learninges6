@@ -42,9 +42,8 @@ console.log(a);
       const reset = yield curr;
       [curr, next] = [next, curr + next];
       if (reset) {
-        throw 'Reset is passed';
-        // curr = 0;
-        // next = 1;
+        curr = 0;
+        next = 1;
       }
       iteratorCount++;
     }
