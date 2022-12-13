@@ -189,4 +189,38 @@ console.log(it);
   transformData(2000).then((res) => console.log('Done', res));
 
 
+})();
+
+(() => {
+
+  function bar(x, y) {
+    var z;
+    foo(x);
+    return [y, z];
+
+    function foo(x) {
+      y++;
+      z = x * y;
+    }
+
+
+  }
+
+})();
+
+(() => {
+  function doubleThemMutable(list) {
+    for (let i in list) {
+      list[i] *= 2;
+    }
+  }
+
+  function doubleThemImmutable(list){
+    let res = [];
+  }
+
+  var arr = [1, 2, 3];
+  doubleThemMutable(arr);
+  console.log(arr);
+
 })()

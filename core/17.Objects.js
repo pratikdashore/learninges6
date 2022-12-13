@@ -132,10 +132,31 @@
 (() => {
 
   'use strict';
-  let obj =  {};
+  let obj = {};
   obj.data ??= 'hello';
   console.log('Object', obj?.data)
 
 
+
+})();
+
+(() => {
+
+  let obj = {
+    val: [1, 2, 3, 4, 5, 6],
+    doubleMe: function () {
+      for (let i = 0; i < this.val.length; i++) {
+        this.val[i] = this.val[i] * 2;
+      }
+    }
+  }
+  obj.doubleMe();
+  console.log(obj.val);
+
+  obj.doubleMe();
+  console.log(obj.val);
+
+  obj.doubleMe();
+  console.log(obj.val);
 
 })()
