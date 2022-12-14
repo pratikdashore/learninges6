@@ -30,7 +30,11 @@ let data = [{
     displayNm: 'Menu 1.1',
     children: [{
       displayNm: 'Menu 1.1.1'
-    }]
+    }, {
+        displayNm: 'Menu 1.1.2'
+      }, {
+        displayNm: 'Menu 1.1.3'
+      }]
   }, {
     displayNm: 'Menu 1.2'
   }, {
@@ -98,11 +102,11 @@ function createListElement(menu) {
 function createDynamicMenu(items) {
   const nav = document.querySelector('#nav');
   const list = createListElement(items);
-  const list2 = createListElement(items);
-  list2.id = 'second';
+  // const list2 = createListElement(items);
+  // list2.id = 'second';
   // nav.appendChild(list);
   nav.appendChild(list);
-  nav.insertBefore(list2, list);
+  // nav.insertBefore(list2, list);
   // nav.parentElement.appendChild(list2);
   // nav.append(list);
 }
