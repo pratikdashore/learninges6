@@ -19,6 +19,7 @@ flex-wrap : nowrap | wrap | wrap-reverse
 flex-flow : (flex-direction flex-wrap)
 
 justify-content : flex-start | flex-end | center | space-between | space-around | space-evenly 
+(it takes effect if grow in not in place)
 
 align-items: stratch | flex-start | flex-end | center | baseline 
 
@@ -76,5 +77,14 @@ flex-align
   @include flex(1 200px);
   @include order(2);
 }
+
+
+Flext: This is a unitless proportion value that dictates how much available space along the main axis each flex item will take up compared to other flex items. In this case, we're giving each <article> element the same value (a value of 1), which means they'll all take up an equal amount of the spare space left after properties like padding and margin have been set. This value is proportionally shared among the flex items: giving each flex item a value of 400000 would have exactly the same effect.
+
+flex-grow: how to grow in available space, if 0 it won't grow and will take space defined by flex-basis or by content depends on flex-basis prop value
+
+flex-shrink: how to shrink in available space, if 0 it won't shrink the content and content will overflow and will be desided based on flex-basis prop value
+
+flex-basis : minimum width each item will take 
 
 -->

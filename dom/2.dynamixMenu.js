@@ -13,8 +13,13 @@ mainContent.appendChild(textNode);
 
 mainContent.append(textNode);
 
-function onClick(params) {
-  console.log(params);
+function onClick(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  debugger;
+  console.log(event.target);
+  event.target.firstElementChild?.classList.toggle('hidden');
+
 }
 
 btn.addEventListener('click', function () {
@@ -25,16 +30,15 @@ btn.addEventListener('click', function () {
 let data = [{
   displayNm: 'Menu 1',
   klsNm: '',
-  onClickFn: onClick,
   children: [{
     displayNm: 'Menu 1.1',
     children: [{
       displayNm: 'Menu 1.1.1'
     }, {
-        displayNm: 'Menu 1.1.2'
-      }, {
-        displayNm: 'Menu 1.1.3'
-      }]
+      displayNm: 'Menu 1.1.2'
+    }, {
+      displayNm: 'Menu 1.1.3'
+    }]
   }, {
     displayNm: 'Menu 1.2'
   }, {
@@ -43,7 +47,6 @@ let data = [{
 }, {
   displayNm: 'Menu 2',
   klsNm: '',
-  onClickFn: onClick,
   children: [{
     displayNm: 'Menu 2.1',
     children: [{
@@ -57,7 +60,6 @@ let data = [{
 }, {
   displayNm: 'Menu 3',
   klsNm: '',
-  onClickFn: onClick,
   children: [{
     displayNm: 'Menu 3.1',
     children: [{
@@ -78,19 +80,28 @@ function createListItem(dataItem) {
   const a = document.createElement('a');
   a.textContent = dataItem.displayNm;
   a.className = dataItem.klsNm || 'nav-link';
-  a.setAttribute('href', '#');
-  li.appendChild(a);
+  a.addEventListener('click', onClick);
+
   if (dataItem.children && dataItem.children.length > 0) {
     const ul = createListElement(dataItem.children);
-    ul.className += ' nav-child'
-    li.appendChild(ul);
+    ul.className += ' nav-child'; 
+    ul.className += ' hidden';
+    a.appendChild(ul);
   }
+
+  li.appendChild(a);
   return li;
 }
 
+
+
 function createListElement(menu) {
+  debugger
   const ul = document.createElement('ul');
   ul.className = 'main-nav';
+  ul.addEventListener('click', function(e){
+    e.stopPropagation();
+  })
 
   for (const item of menu) {
     const li = createListItem(item);
@@ -99,19 +110,20 @@ function createListElement(menu) {
   return ul;
 }
 
-function createDynamicMenu(items) {
-  const nav = document.querySelector('#nav');
+function createDynamicMenu(parent, items) {
   const list = createListElement(items);
   // const list2 = createListElement(items);
   // list2.id = 'second';
   // nav.appendChild(list);
-  nav.appendChild(list);
+  parent.appendChild(list);
   // nav.insertBefore(list2, list);
   // nav.parentElement.appendChild(list2);
   // nav.append(list);
 }
 
-createDynamicMenu(data);
+const nav = document.querySelector('#nav');
+
+createDynamicMenu(nav, data);
 
 // create a table 
 
@@ -193,7 +205,7 @@ const btn1_2 = document.querySelector('#btn_1_2');
 const div1 = document.querySelector('#div_1');
 const div2 = document.querySelector('#div_2');
 
-function onBtnClick(event){
+function onBtnClick(event) {
   console.log('Target', event.target.id);
   console.log('Current Target', event.currentTarget.id);
 }

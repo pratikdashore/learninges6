@@ -13,15 +13,14 @@ body {
   justify-content: space-around;
   background-color: aquamarine;
   font-size: 20px;
-  align-items: center;
 }
 
 .logo-header {
   display: flex;
   justify-content: space-around;
   flex-flow: row nowrap;
-  flex-grow: 1;
-  flex-basis: auto; 
+  flex: 1 200px;
+  align-self: center; 
 }
 
 .logo{
@@ -34,8 +33,7 @@ body {
 .nav-container {
   display: flex;
   justify-content: flex-end;
-  flex: 9 1;
-  flex-basis: auto;
+  flex: 9 500px;
 }
 
 .main-nav{
@@ -57,3 +55,6 @@ body {
   background-color: red;
 }
 
+.hidden {
+  display: none;
+}
