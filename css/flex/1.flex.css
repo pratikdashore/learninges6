@@ -12,7 +12,5 @@
 .item {
   background-color: green;
   border: solid 2px black;
-  width: 200px;
-  height: 200px;
-  flex: 0 1 auto;
+  flex: 1 1 auto;
 }

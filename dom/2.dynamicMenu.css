@@ -2,7 +2,9 @@
   font-weight: bold;
 }
 
-
+:root {
+  font-size: 16px;
+}
 body {
  margin: 0;
  padding: 0;
@@ -10,41 +12,45 @@ body {
 
 .navbar {
   display: flex;
-  justify-content: space-around;
   background-color: aquamarine;
-  font-size: 20px;
+  font-size: 2rem;
+  flex-flow: row nowrap;
 }
 
 .logo-header {
   display: flex;
-  justify-content: space-around;
-  flex-flow: row nowrap;
-  flex: 1 200px;
+  flex-flow: row wrap;
   align-self: center; 
+  gap: 1rem;
+  flex: 1 8 auto;
 }
 
 .logo{
   color: red;
-  font-size: 25px;
   font-weight: bold;
   text-decoration: none;
 }
 
 .nav-container {
   display: flex;
+  /* margin-left: auto; */
+  gap: 2rem;
+  flex: 8 1 auto;
   justify-content: flex-end;
-  flex: 9 500px;
 }
 
 .main-nav{
   display: flex;
-  justify-content: space-around;
   list-style: none;
-  gap: 15px;
+  gap: 2rem;
+  flex-flow: row wrap;
+  font-size: 0.8em;
 }
 
 .nav-child {
   flex-flow: column;
+  gap:1em;
+  padding-top: 1em;
 }
 
 .nav-link{
@@ -57,4 +63,33 @@ body {
 
 .hidden {
   display: none;
+}
+
+
+@media(max-width: 500px) {
+   :root{
+    font-size: 8px;
+   }
+
+  .navbar{
+    flex-flow: column wrap;
+  } 
+   
+  .nav-container{
+    justify-content: flex-start;
+  }
+
+  .main-nav{
+    flex-flow: column wrap;
+  }
+
+    .nav-child {
+      flex-flow: row wrap;
+    }
+}
+
+@media(min-width: 1600px) {
+  .nav-child{
+    flex-flow: row nowrap;
+  }
 }

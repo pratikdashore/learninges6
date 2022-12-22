@@ -16,7 +16,6 @@ mainContent.append(textNode);
 function onClick(event) {
   event.preventDefault();
   event.stopPropagation();
-  debugger;
   console.log(event.target);
   event.target.firstElementChild?.classList.toggle('hidden');
 
@@ -73,7 +72,113 @@ let data = [{
   }, {
     displayNm: 'Menu 3.3'
   }]
-}];
+  }, {
+    displayNm: 'Menu 4',
+    klsNm: '',
+    children: [{
+      displayNm: 'Menu 4.1',
+      children: [{
+        displayNm: 'Menu 4.1.1'
+      }, {
+        displayNm: 'Menu 4.1.2'
+      }, {
+        displayNm: 'Menu 4.1.3'
+      }]
+    }, {
+      displayNm: 'Menu 4.2'
+    }, {
+      displayNm: 'Menu 4.3'
+    }]
+  }, {
+    displayNm: 'Menu 5',
+    klsNm: '',
+    children: [{
+      displayNm: 'Menu 5.1',
+      children: [{
+        displayNm: 'Menu 5.1.1'
+      }]
+    }, {
+      displayNm: 'Menu 5.2'
+    }, {
+      displayNm: 'Menu 5.3'
+    }]
+  }, {
+    displayNm: 'Menu 6',
+    klsNm: '',
+    children: [{
+      displayNm: 'Menu 6.1',
+      children: [{
+        displayNm: 'Menu 6.1.1'
+      }]
+    }, {
+      displayNm: 'Menu 6.2',
+      children: [{
+        displayNm: 'Menu 6.2.1'
+      }]
+    }, {
+      displayNm: 'Menu 6.3'
+      }, {
+        displayNm: 'Menu 6.4',
+        klsNm: '',
+        children: [{
+          displayNm: 'Menu 6.4.1',
+          children: [{
+            displayNm: 'Menu 6.4.1.1'
+          }, {
+            displayNm: 'Menu 6.4.1.2'
+          }, {
+            displayNm: 'Menu 6.4.1.3'
+          }]
+        }, {
+          displayNm: 'Menu 6.4.2'
+        }, {
+          displayNm: 'Menu 6.4.3'
+        }]
+      }, {
+        displayNm: 'Menu 6.5',
+        klsNm: '',
+        children: [{
+          displayNm: 'Menu 6.5.1',
+          children: [{
+            displayNm: 'Menu 6.5.1.1'
+          }]
+        }, {
+          displayNm: 'Menu 6.5.2'
+        }, {
+          displayNm: 'Menu 6.5.3'
+        }]
+      }, {
+        displayNm: 'Menu 6.7',
+        klsNm: '',
+        children: [{
+          displayNm: 'Menu 6.7.1',
+          children: [{
+            displayNm: 'Menu 6.7.1.1',
+            children: [{
+              displayNm: 'Menu 6.7.1.1.1',
+              children: [{
+                displayNm: 'Menu 6.7.1.1.1.1'
+              }, {
+                displayNm: 'Menu 6.7.1.1.1.2'
+              }, {
+                displayNm: 'Menu 6.7.1.1.1.3'
+              }]
+            }, {
+              displayNm: 'Menu 6.7.1.1.2'
+            }, {
+              displayNm: 'Menu 6.7.1.1.3'
+            }]
+          }]
+        }, {
+          displayNm: 'Menu 6.7.2',
+          children: [{
+            displayNm: 'Menu 6.7.2.1'
+          }]
+        }, {
+          displayNm: 'Menu 6.7.3'
+        }]
+      }]
+  }];
 
 function createListItem(dataItem) {
   const li = document.createElement('li');
@@ -96,7 +201,6 @@ function createListItem(dataItem) {
 
 
 function createListElement(menu) {
-  debugger
   const ul = document.createElement('ul');
   ul.className = 'main-nav';
   ul.addEventListener('click', function(e){

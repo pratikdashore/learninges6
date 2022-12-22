@@ -1,46 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Selectors</title>
-  <style>
-   ul > li {
-     border: 1px solid red;
-   }
-h1 ~ p {
-    font-weight: bold;
-    background-color: #333;
-    color: #fff;
-    padding: .5em;
-}   
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selectors</title>
+    <style>
+      ul > li {
+        border: 1px solid red;
+      }
+      h1 ~ p {
+        font-weight: bold;
+        background-color: #333;
+        color: #fff;
+        padding: 0.5em;
+      }
 
-p.vertical{
-  writing-mode: vertical-rl;
-}
-    
-  </style>
-</head>
-<body>
-  <ul>
-    <li>Unordered item</li>
-    <li>Unordered item
-      <ol>
-        <li>Item 1</li>
-        <li>Item 2</li>
-      </ol>
-    </li>
-  </ul>
-  <article>
-    <h1>A heading</h1>
-    <p>Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo
-      melon azuki bean garlic.</p>
+      p.vertical {
+        writing-mode: vertical-rl;
+      }
 
-    <p>Hello</p>  
-  
-    <p class="vertical">Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard
-      greens dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.</p>
-  </article>
-</body>
+      div.box {
+        width: 100px;
+        height: 100px;
+        margin:20px;
+        background: linear-gradient(orange, red);
+      }
+      div.box-1 {
+        /* transform: rotate(asin(1)); */
+      }
+      div.box-2 {
+        /* transform: rotate(asin(0.5)); */
+      }
+      div.box-3 {
+        transform: rotate(asin(0));
+      }
+      div.box-4 {
+        transform: rotate(asin(-0.5));
+      }
+      div.box-5 {
+        transform: rotate(asin(-1));
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>Unordered item</li>
+      <li>
+        Unordered item
+        <ol>
+          <li>Item 1</li>
+          <li>Item 2</li>
+        </ol>
+      </li>
+    </ul>
+    <article>
+      <h1>A heading</h1>
+      <p>
+        Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh
+        onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.
+      </p>
+
+      <p>Hello</p>
+
+      <p>
+        Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot
+        courgette tatsoi pea sprouts fava bean collard greens dandelion okra
+        wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.
+      </p>
+    </article>
+
+    <div class="box box-1"></div>
+    <div class="box box-2"></div>
+    <div class="box box-3"></div>
+    <div class="box box-4"></div>
+    <div class="box box-5"></div>
+  </body>
 </html>
