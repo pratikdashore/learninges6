@@ -6,7 +6,7 @@
   font-size: 16px;
 }
 body {
- margin: 0;
+ margin: -0.5rem;
  padding: 0;
 }
 
@@ -44,7 +44,7 @@ body {
   list-style: none;
   gap: 2rem;
   flex-flow: row wrap;
-  font-size: 0.8em;
+  font-size: max(0.75rem, 0.8em);
 }
 
 .nav-child {

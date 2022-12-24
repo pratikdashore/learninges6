@@ -81,6 +81,53 @@ flex-align
 
 Flext: This is a unitless proportion value that dictates how much available space along the main axis each flex item will take up compared to other flex items. In this case, we're giving each <article> element the same value (a value of 1), which means they'll all take up an equal amount of the spare space left after properties like padding and margin have been set. This value is proportionally shared among the flex items: giving each flex item a value of 400000 would have exactly the same effect.
 
+/* Keyword values */
+flex: auto;
+flex: initial;
+flex: none;
+
+/* One value, unitless number: flex-grow
+flex-basis is then equal to 0. */
+flex: 2;
+
+/* One value, width/height: flex-basis */
+flex: 10em;
+flex: 30%;
+flex: min-content;
+
+/* Two values: flex-grow | flex-basis */
+flex: 1 30px;
+
+/* Two values: flex-grow | flex-shrink */
+flex: 2 2;
+
+/* Three values: flex-grow | flex-shrink | flex-basis */
+flex: 2 2 10%;
+
+/* Global values */
+flex: inherit;
+flex: initial;
+flex: revert;
+flex: revert-layer;
+flex: unset;
+
+
+The flex property may be specified using one, two, or three values.
+
+One-value syntax: the value must be one of:
+a valid value for <flex-grow>: then the shorthand expands to flex: <flex-grow> 1 0.
+a valid value for <flex-basis>: then the shorthand expands to flex: 1 1 <flex-basis>.
+the keyword none or one of the global keywords.
+Two-value syntax:
+The first value must be a valid value for flex-grow.
+The second value must be one of:
+a valid value for flex-shrink: then the shorthand expands to flex: <flex-grow> <flex-shrink> 0.
+a valid value for flex-basis: then the shorthand expands to flex: <flex-grow> 1 <flex-basis>.
+Three-value syntax: the values must be in the following order:
+a valid value for flex-grow.
+a valid value for flex-shrink.
+a valid value for flex-basis.
+
 flex-grow: how to grow in available positive free space, if 0 it won't grow and will take space defined by flex-basis or by content depends on flex-basis prop value
 The flex-grow property specifies the flex grow factor, which determines how much the flex item will grow relative to the rest of the flex items in the flex container when the positive free space is distributed.
 
