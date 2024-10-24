@@ -310,6 +310,7 @@ const div1 = document.querySelector('#div_1');
 const div2 = document.querySelector('#div_2');
 
 function onBtnClick(event) {
+  event.stopPropagation();
   console.log('Target', event.target.id);
   console.log('Current Target', event.currentTarget.id);
 }

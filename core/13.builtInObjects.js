@@ -1,5 +1,5 @@
 
-let num = 071;
+let num = 71;
 console.log(num);
 let octal = parseInt(num);
 console.log(octal);
